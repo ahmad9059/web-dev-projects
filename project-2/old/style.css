@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+html,body{
+
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+
+    width: 100%;
+    height: 100%;
+}
+#nav{
+
+    height: 70px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    padding: 0 30px;
+}
+#nav h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+#nav a{
+    color: black;
+    text-decoration: none;
+    
+}
+#nav a:hover{
+    text-decoration: underline;
+}
+#nav i{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: 500;
+}
+
+#center{
+    /* background-color: green; */
+    width: 100%;
+    padding: 40px 100px;
+}
+#center h1{
+
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 90px;
+}
+
+#center-in{
+
+    /* background-color: crimson; */
+    height: 160px;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#center-in p{
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 50px;
+}
+
+#right{
+    width: 20%;
+}
+.elem{
+    /* background-color: yellow; */
+    /* margin: 5px; */
+    padding: 17px 0;
+    border-top: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.elem i{
+
+    font-size: 25px;
+    font-weight: 500;
+    opacity: 0;
+}
+
+.elem a{
+
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;    
+}
+
+.elem:hover i{
+    opacity: 1;
+}
+
+.elem:hover{
+
+    background-color: whitesmoke;
+}
+
+.elem:hover a{
+    text-decoration: underline;
+}
+
+#bottom{
+
+    height: 30.9%;
+    width: 100%;
+    /* background-color: crimson; */
+    background-image: url(https://images.unsplash.com/photo-1571442463800-1337d7af9d2f?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: 0 20%;
+
+}
