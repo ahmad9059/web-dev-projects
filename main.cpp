@@ -1,51 +1,92 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <cmath>
+
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+long long factorial(int n)
+{
+    long long result = 1;
+    for (int i = 2; i <= n; ++i)
+    {
+        result *= i;
+    }
+    return result;
+}
 
-    const int max = 200000;
-    vector<int> d(max + 1, 0);
-    for (int x = 1; x <= max; x++) {
-        if (x < 5) {
-            d[x] = 1;
-        } else {
-            d[x] = 1 + d[x / 5];
+int main()
+{
+    int n;
+    cin >> n;
+    while (n--)
+    {
+        int n;
+        cin >> n;
+
+        if (n == 1)
+        {
+            cout << 1 << endl;
+            continue;
         }
-    }
 
-    vector<int> prefix(max + 1, 0);
-    for (int i = 1; i <= max; i++) {
-        prefix[i] = prefix[i - 1] + d[i];
-    }
-
-    int n = max;
-    int logn = floor(log2(n)) + 1;
-    vector<vector<int>> st(logn, vector<int>(n + 1, 0));
-    for (int i = 1; i <= n; i++) {
-        st[0][i] = d[i];
-    }
-    for (int j = 1; j < logn; j++) {
-        for (int i = 1; i + (1 << j) - 1 <= n; i++) {
-            st[j][i] = min(st[j - 1][i], st[j - 1][i + (1 << (j - 1))]);
+        vector<pair<int, int>> edges;
+        for (int i = 0; i < n - 1; ++i)
+        {
+            int u, v;
+            cin >> u >> v;
+            edges.push_back({u, v});
         }
-    }
 
-    auto query = [&](int L, int R) -> int {
-        int len = R - L + 1;
-        int k = floor(log2(len));
-        return min(st[k][L], st[k][R - (1 << k) + 1]);
-    };
+        vector<vector<int>> adj(n);
+        for (const auto &edge : edges)
+        {
+            adj[edge.first].push_back(edge.second);
+            adj[edge.second].push_back(edge.first);
+        }
 
-    int t;
-    cin >> t;
-    while (t--) {
-        int l, r;
-        cin >> l >> r;
-        int total = prefix[r] - prefix[l - 1];
-        int m = query(l, r);
-        cout << total + m << "\n";
+        // Check connectivity using BFS
+        vector<bool> visited(n, false);
+        deque<int> q;
+        q.push_back(0);
+        visited[0] = true;
+        int count = 1;
+
+        while (!q.empty())
+        {
+            int node = q.front();
+            q.pop_front();
+            for (int neighbor : adj[node])
+            {
+                if (!visited[neighbor])
+                {
+                    visited[neighbor] = true;
+                    count++;
+                    q.push_back(neighbor);
+                }
+            }
+        }
+
+        if (count != n)
+        {
+            cout << 0 << endl;
+            continue;
+        }
+
+        vector<int> degrees(n);
+        for (int i = 0; i < n; ++i)
+        {
+            degrees[i] = adj[i].size();
+        }
+
+        long long deno = 1;
+        for (int d : degrees)
+        {
+            deno *= factorial(d - 1);
+        }
+        long long no = factorial(n - 2);
+
+        cout << no / deno << endl;
     }
 
     return 0;
