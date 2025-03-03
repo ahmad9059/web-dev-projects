@@ -1,0 +1,98 @@
+@import url("https://gistcdn.githack.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+  color: #fff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#main {
+  width: 100%;
+  height: 100%;
+  background-color: #090909;
+}
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 30px;
+}
+#nav-part2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+#nav h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 400;
+}
+#main > h1 {
+  font-size: 160px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 140px;
+  /* background-color: crimson; */
+  width: 70%;
+  margin-left: 20%;
+  position: relative;
+  z-index: 9;
+}
+
+#main h1:nth-child(2) {
+  margin-top: 180px;
+}
+
+#main h1:nth-child(3) {
+  text-align: center;
+}
+
+#main h1:nth-child(4) {
+  text-align: center;
+}
+
+#main img {
+  position: absolute;
+  height: 450px;
+  top: 10%;
+  left: 40%;
+  border-radius: 15px;
+}
+#img1 {
+  rotate: 20deg;
+}
+
+#img2 {
+  rotate: 13deg;
+}
+
+#footer {
+  display: flex;
+  align-items: center;
+}
+#footer h5 {
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+}
+#footer h4 {
+  position: absolute;
+  left: 6%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+}
